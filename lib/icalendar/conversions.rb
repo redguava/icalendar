@@ -94,11 +94,12 @@ end
 
 class Time
   attr_accessor :ical_params
-  def to_ical(utc = false)
-    s = strftime '%H%M%S'
+
+  def to_ical
+    s = strftime '%Y%m%dT%H%M%S'
 
     # UTC time gets a Z suffix
-    if utc
+    if utc?
       s << "Z"
     end
 
